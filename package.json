@@ -1,0 +1,32 @@
+{
+  "name": "nso-boilerplate",
+  "version": "1.0.0",
+  "description": "Not So Opinionated typescript http server boilerplate",
+  "main": "build/index.js",
+  "repository": "git@github.com:vloth/nso-boilerplate.git",
+  "author": "Francisco Berrocal <fran.fhb@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "dotenv tsnd src/index.ts",
+    "start:prod": "node ./build/src/index",
+    "build": "tsc",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "koa": "^2.13.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.6",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "dotenv-cli": "^4.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "ora": "^5.2.0",
+    "prettier": "^2.2.1",
+    "testcontainers": "^6.4.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
