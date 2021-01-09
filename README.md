@@ -6,5 +6,8 @@ As minimal as possible, yet provides a solid foundation.
 * ~~lint~~
 * ~~env~~
 * ~~unit test~~
-* ~~functional test~~
+* ~~integration test~~
+* ~~migration~~
+* functional test
+* enhance types for 
 * logging

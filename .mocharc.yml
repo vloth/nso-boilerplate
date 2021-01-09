@@ -1,4 +1,5 @@
 extension: [ts]
+file: [test-setup.ts]
 require: [ts-node/register]
 ui: qunit
 reporter: dot

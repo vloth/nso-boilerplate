@@ -9,7 +9,7 @@
   "scripts": {
     "start": "dotenv tsnd src/index.ts",
     "test": "scripts/test 'src/**/*.test.ts'",
-    "test:f": "scripts/wrap-pg scripts/test 'test/**/*.test.ts'",
+    "test:f": "FUNCTIONAL=true scripts/wrap-pg scripts/test 'test/**/*.test.ts'",
     "start:prod": "node ./build/src/index",
     "build": "tsc",
     "lint": "eslint"
@@ -34,6 +34,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "mocha": "^8.2.1",
     "ora": "^5.2.0",
+    "postgres-migrations": "^5.1.0",
     "prettier": "^2.2.1",
     "testcontainers": "^6.4.1",
     "ts-node-dev": "^1.1.1",
