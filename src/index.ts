@@ -1,11 +1,20 @@
-import Koa from 'koa'
+import { app } from './app'
+import * as database from './db'
 
-const app = new Koa()
+const dieOn = (why: string) =>
+    process.on(why, ex => {
+        console.error('\n%s\n%s\n\n', new Date().toISOString(), why, ex, '\n')
+        process.exit(1)
+    })
 
-app.use(ctx => {
-    ctx.body = 'Hello Koa'
-})
+dieOn('unhandledRejection')
+dieOn('uncaughtException')
 
-app.listen(process.env.PORT, function () {
-    console.log('running on port ', process.env.PORT)
-})
+// 🚀 run!
+;(async function main() {
+    await database.init()
+
+    app.listen(process.env.PORT, function () {
+        console.log('running on port ', process.env.PORT)
+    })
+})()

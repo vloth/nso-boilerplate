@@ -1,0 +1,8 @@
+extension: [ts]
+require: [ts-node/register]
+ui: qunit
+reporter: dot
+check-leaks: true
+full-trace: true
+trace-deprecation: true
+trace-warnings: true
