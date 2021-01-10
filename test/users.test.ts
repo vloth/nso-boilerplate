@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import { create, get, list } from '../src/users'
 
 suite('#users repository')

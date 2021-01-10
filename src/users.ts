@@ -1,4 +1,5 @@
 import { db, format } from './db'
+import { logger } from './logger'
 
 type User = { id: number; name: string }
 
@@ -16,5 +17,6 @@ export async function get(id: number) {
 
 export async function list() {
     const { rows } = await db.query<User>('select * from users')
+    logger.info({ count: rows.length }, 'Users retrieved')
     return rows
 }

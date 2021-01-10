@@ -1,9 +1,10 @@
 import { app } from './app'
+import { logger } from './logger'
 import * as database from './db'
 
 const dieOn = (why: string) =>
-    process.on(why, ex => {
-        console.error('\n%s\n%s\n\n', new Date().toISOString(), why, ex, '\n')
+    process.on(why, err => {
+        logger.fatal({ err }, why)
         process.exit(1)
     })
 
@@ -14,7 +15,8 @@ dieOn('uncaughtException')
 ;(async function main() {
     await database.init()
 
-    app.listen(process.env.PORT, function () {
-        console.log('running on port ', process.env.PORT)
+    const port = process.env.PORT
+    app.listen(port, function () {
+        logger.info({ port }, 'Application started')
     })
 })()

@@ -1,6 +1,8 @@
 import { db, init, stop } from './src/db'
 import { migrate } from 'postgres-migrations'
 
+import 'chai/register-expect'
+
 const isFunc = process.env.FUNCTIONAL === 'true'
 
 if (isFunc) {
