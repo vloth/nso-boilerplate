@@ -10,13 +10,12 @@
     "start:db": "./scripts/start-local-db",
     "start:prod": "node ./build/src/index",
     "start": "dotenv tsnd src/index.ts",
-    "test": "scripts/test 'src/**/*.test.ts'",
-    "test:f": "dotenv -e .env.test scripts/wrap-pg scripts/test 'test/**/*.test.ts'",
+    "test": "dotenv -e .env.unit-test -- scripts/test 'src/**/*.test.ts'",
+    "test:f": "dotenv -e .env.test -- scripts/wrap-pg scripts/test 'test/**/*.test.ts'",
     "build": "tsc",
     "lint": "eslint"
   },
   "dependencies": {
-    "@types/pg-format": "^1.0.1",
     "koa": "^2.13.1",
     "pg": "^8.5.1",
     "pg-format": "^1.0.4",
@@ -24,13 +23,17 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
+    "@types/chai-subset": "^1.3.3",
     "@types/koa": "^2.11.6",
     "@types/mocha": "^8.2.0",
     "@types/pg": "^7.14.7",
     "@types/pino": "^6.3.5",
+    "@types/sinon-chai": "^3.2.5",
+    "@types/pg-format": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "chai": "^4.2.0",
+    "chai-subset": "^1.6.0",
     "dotenv-cli": "^4.0.0",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
@@ -40,8 +43,10 @@
     "pino-pretty": "^4.3.0",
     "postgres-migrations": "^5.1.0",
     "prettier": "^2.2.1",
+    "sinon-chai": "^3.5.0",
     "testcontainers": "^6.4.1",
     "ts-node-dev": "^1.1.1",
+    "ts-sinon": "^2.0.1",
     "typescript": "^4.1.3"
   }
 }
